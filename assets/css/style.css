@@ -621,7 +621,7 @@ img {
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
 
@@ -718,12 +718,6 @@ img {
   color: #fff;
 }
 
-@media (max-width: 768px) {
-  .cases-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* ========================================
    Clients / Projects
    ======================================== */
@@ -815,7 +809,7 @@ img {
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
 
@@ -865,7 +859,7 @@ img {
   max-width: 1100px;
   margin: 3rem auto 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
 
@@ -873,7 +867,7 @@ img {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.2rem;
+  padding: 1.5rem 1rem;
   text-align: center;
   transition: var(--transition);
 }
@@ -882,16 +876,17 @@ img {
   border-color: rgba(124,58,237,0.2);
 }
 
+.product-count {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-purple);
+  line-height: 1.2;
+}
+
 .product-name {
   font-size: 0.9rem;
   font-weight: 600;
-  margin-bottom: 0.3rem;
-}
-
-.product-count {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--accent-purple);
+  margin: 0.3rem 0;
 }
 
 .product-label {
@@ -907,7 +902,7 @@ img {
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
@@ -971,7 +966,7 @@ img {
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
@@ -1034,7 +1029,7 @@ img {
 
 .awards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.2rem;
 }
 
@@ -1222,9 +1217,47 @@ img {
 .reveal-delay-4 { transition-delay: 0.4s; }
 
 /* ========================================
-   Responsive
+   Responsive — Tablet (max 1024px)
+   ======================================== */
+@media (max-width: 1024px) {
+  .about-grid {
+    gap: 3rem;
+  }
+
+  .cases-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gov-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .awards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ========================================
+   Responsive — Mobile (max 768px)
    ======================================== */
 @media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+
+  /* Nav mobile menu */
+  .nav {
+    padding: 1rem 1.2rem;
+  }
+
+  .nav.scrolled {
+    padding: 0.6rem 1.2rem;
+  }
+
   .nav-links {
     display: none;
     position: fixed;
@@ -1237,6 +1270,7 @@ img {
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    z-index: 1000;
   }
 
   .nav-links.open {
@@ -1244,7 +1278,7 @@ img {
   }
 
   .nav-links a {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .nav-toggle {
@@ -1252,79 +1286,481 @@ img {
     z-index: 1001;
   }
 
+  /* Hero mobile */
+  .hero {
+    min-height: 100svh;
+    padding: 2rem 1.2rem;
+  }
+
+  .hero-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+
+  .hero-title {
+    font-size: 1rem;
+    margin: 0 auto 2rem;
+    padding: 0 0.5rem;
+  }
+
+  .hero-cta {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.9rem;
+  }
+
+  .hero-scroll {
+    bottom: 1.5rem;
+  }
+
+  /* Sections mobile */
+  .section {
+    padding: 3.5rem 1.2rem;
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  /* About mobile */
   .about-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
   .about-image-wrapper {
-    max-width: 300px;
+    max-width: 280px;
     margin: 0 auto;
     aspect-ratio: 1;
   }
 
+  .about-text {
+    font-size: 0.95rem;
+  }
+
   .about-stats {
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.8rem;
+    gap: 0.6rem;
+  }
+
+  .stat-card {
+    padding: 1rem 0.5rem;
   }
 
   .stat-number {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .stat-label {
+    font-size: 0.65rem;
   }
 
-  .clients-highlight {
-    padding: 2rem;
+  .about-badges {
+    flex-direction: column;
+    gap: 0.6rem;
   }
 
-  .highlight-stats {
-    grid-template-columns: repeat(2, 1fr);
+  .badge {
+    font-size: 0.75rem;
+    justify-content: center;
   }
 
-  .section {
-    padding: 4rem 1.2rem;
-  }
-
+  /* Timeline mobile */
   .timeline {
     padding-left: 1.5rem;
   }
 
   .timeline-item {
     padding-left: 1.5rem;
+    padding-bottom: 2rem;
   }
 
   .timeline-dot {
     left: -1.85rem;
+    width: 10px;
+    height: 10px;
   }
 
-  .skills-container,
+  .timeline-date {
+    font-size: 0.7rem;
+  }
+
+  .timeline-card {
+    padding: 1.2rem;
+  }
+
+  .timeline-role {
+    font-size: 1.05rem;
+  }
+
+  .timeline-company {
+    font-size: 0.85rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.85rem;
+  }
+
+  .timeline-tag {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+  /* Highlight BBB mobile */
+  .clients-highlight {
+    padding: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .highlight-title {
+    font-size: 1.4rem;
+  }
+
+  .highlight-desc {
+    font-size: 0.9rem;
+  }
+
+  .highlight-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+  }
+
+  .highlight-stat {
+    padding: 0.8rem 0.5rem;
+  }
+
+  .highlight-stat-number {
+    font-size: 1.3rem;
+  }
+
+  .highlight-stat-label {
+    font-size: 0.65rem;
+  }
+
+  /* Client grid mobile */
+  .clients-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+
+  .client-card {
+    padding: 1.2rem;
+  }
+
+  .client-name {
+    font-size: 0.9rem;
+  }
+
+  .client-projects {
+    font-size: 0.75rem;
+  }
+
+  .client-tag {
+    font-size: 0.65rem;
+  }
+
+  /* Products grid mobile — 2x2 */
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+
+  .product-card {
+    padding: 1.2rem 0.8rem;
+  }
+
+  .product-count {
+    font-size: 1.5rem;
+  }
+
+  .product-name {
+    font-size: 0.85rem;
+  }
+
+  /* Cases mobile */
+  .cases-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .case-card {
+    padding: 1.5rem;
+  }
+
+  .case-brand {
+    font-size: 1.1rem;
+  }
+
+  .case-tag {
+    font-size: 0.6rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .case-desc {
+    font-size: 0.85rem;
+  }
+
+  .case-metrics {
+    gap: 1rem;
+  }
+
+  .case-metric-value {
+    font-size: 1.1rem;
+  }
+
+  .case-metric-label {
+    font-size: 0.65rem;
+  }
+
+  /* Government mobile */
   .gov-cards {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .gov-card {
+    padding: 1.5rem;
+  }
+
+  .gov-card-title {
+    font-size: 1rem;
+  }
+
+  .gov-card-desc {
+    font-size: 0.85rem;
+  }
+
+  /* Skills mobile */
+  .skills-container {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .skill-group {
+    padding: 1.5rem;
+  }
+
+  .skill-group-title {
+    font-size: 1rem;
+  }
+
+  .skill-tag {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.75rem;
+  }
+
+  /* Awards mobile */
+  .awards-photo {
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .awards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+
+  .award-card {
+    padding: 1.2rem;
+  }
+
+  .award-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .award-name {
+    font-size: 0.85rem;
+  }
+
+  .award-desc {
+    font-size: 0.75rem;
+  }
+
+  /* Contact mobile */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .contact-text {
+    font-size: 0.95rem;
+  }
+
+  .contact-cta {
+    padding: 2rem 1.5rem;
+  }
+
+  .contact-cta-title {
+    font-size: 1.3rem;
+  }
+
+  .contact-btn {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.9rem;
+  }
+
+  .contact-hours {
+    font-size: 0.75rem;
+  }
+}
+
+/* ========================================
+   Responsive — Small phones (max 480px)
+   iPhone SE, Galaxy S series, Pixel
+   ======================================== */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 3rem 1rem;
+  }
+
+  .hero-name {
+    font-size: 2.8rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  /* About stats — keep 3 columns but tighter */
+  .about-stats {
+    gap: 0.4rem;
+  }
+
+  .stat-card {
+    padding: 0.8rem 0.3rem;
+  }
+
+  .stat-number {
+    font-size: 1.2rem;
+  }
+
+  .stat-label {
+    font-size: 0.6rem;
+  }
+
+  /* Highlight BBB — stack on very small */
+  .highlight-stats {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .highlight-stat-number {
+    font-size: 1.1rem;
+  }
+
+  /* Client grid — 2 columns still fits */
+  .clients-grid {
+    gap: 0.6rem;
+  }
+
+  .client-card {
+    padding: 1rem;
+  }
+
+  /* Products grid — stays 2x2 */
+  .products-grid {
+    gap: 0.6rem;
+  }
+
+  .product-card {
+    padding: 1rem 0.5rem;
+  }
+
+  .product-count {
+    font-size: 1.3rem;
+  }
+
+  .product-name {
+    font-size: 0.8rem;
+  }
+
+  .product-label {
+    font-size: 0.6rem;
+  }
+
+  /* Cases — tighter */
+  .case-card {
+    padding: 1.2rem;
+  }
+
+  .case-metrics {
+    gap: 0.8rem;
+  }
+
+  /* Awards 2 columns still */
+  .awards-grid {
+    gap: 0.6rem;
+  }
+
+  .award-card {
+    padding: 1rem 0.8rem;
+  }
+
+  .award-name {
+    font-size: 0.8rem;
+  }
+
+  .award-desc {
+    font-size: 0.7rem;
+  }
+}
+
+/* ========================================
+   Responsive — Extra small (max 360px)
+   iPhone SE 1st gen, older small phones
+   ======================================== */
+@media (max-width: 360px) {
+  .section {
+    padding: 2.5rem 0.8rem;
+  }
+
+  .hero-name {
+    font-size: 2.4rem;
+  }
+
+  .about-image-wrapper {
+    max-width: 220px;
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .stat-number {
+    font-size: 1.1rem;
+  }
+
+  .highlight-stats {
     grid-template-columns: 1fr;
   }
 
   .clients-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-}
 
-@media (max-width: 480px) {
-  .highlight-stats {
+  .awards-grid {
     grid-template-columns: 1fr;
   }
 
-  .about-stats {
-    grid-template-columns: 1fr;
-  }
-
-  .clients-grid {
-    grid-template-columns: 1fr;
+  .case-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 }
